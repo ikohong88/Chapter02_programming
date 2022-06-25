@@ -13,15 +13,16 @@ public class Prac_algorithm_1 {
 
         ArrayList<String> firstarray = new ArrayList<>();
 
-        String date = "20160101";
-        SimpleDateFormatat dtFormat = new SimpleDateFormat("yyyyMMdd");
-        Calendardar cal = Calendar.getInstance();
-        Datee dt = dtFormat.parse(date);
-        cal.setTime(dt);
-        System.out.println(cal);
+//        String date = "20160101";
+//        SimpleDateFormatat dtFormat = new SimpleDateFormat("yyyyMMdd");
+//        Calendardar cal = Calendar.getInstance();
+//        Datee dt = dtFormat.parse(date);
+//        cal.setTime(dt);
+//        System.out.println(cal);
 
-        String [] _string = {"SUN","MON","TUE","WED","THU","FRI","SAT"};
-        for (String s: _string) {
+        String[] _string = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+        for (String s : _string) {
             System.out.println(s);
+        }
     }
 }
