@@ -124,9 +124,14 @@ public class Prac_algorithm_18 {
 
 //      정답 배열 길이만큼 수포자 정답 길이 추가
         for (int i = 0; i < answers.length; i++) {
-            new_people_1.add(people_1[i]);
-            new_people_2.add(people_2[i]);
-            new_people_3.add(people_3[i]);
+//          수포자 정답이 올바르게 들어가도록 진행 필요
+            int num_1 = i % 5;
+            System.out.println("num_1 = " + num_1);
+            new_people_1.add(people_1[num_1]);
+            int num_2 = i % 7;
+            new_people_2.add(people_2[num_2]);
+            int num_3 = i % 9;
+            new_people_3.add(people_3[num_3]);
 
 //          1번 수포자 정답 비교
             if (new_people_1.get(i) == answers[i]) {
@@ -141,24 +146,43 @@ public class Prac_algorithm_18 {
                 people_3_answer++;
             }
         }
+
         int[] people_answer = {people_1_answer,people_2_answer,people_3_answer};
 
+//      =========================================================
+//      arrays.sort() 이용 아래쪽 코드 개선 **
 //      people_answer의 최대값 구하기 (정답을 가장 많이 맞춘 갯수)
-        IntStream intStream = Arrays.stream(people_answer);
-        OptionalInt optionalInt = intStream.max();
-        int maxAsInt = optionalInt.getAsInt();
+//      for문으로 계산 개산 - 시간 복잡도 부분 개산 필요
+//      stream, for문 시간 복잡도 확인 필요 **
+//      people_answer의 최대값 구하기 (정답을 가장 많이 맞춘 갯수)
+//        IntStream intStream = Arrays.stream(people_answer);
+//        OptionalInt optionalInt = intStream.max();
+//        int maxAsInt = optionalInt.getAsInt();
 
-//      가장 높은점수 받은 사람이 여럿일 경우 오름차순 정렬
+////      가장 높은점수 받은 사람이 여럿일 경우 오름차순 정렬
+//        ArrayList<Integer> result = new ArrayList<>();
+//        for (int i = 1; i < people_answer.length + 1; i++) {
+//            if (maxAsInt == people_answer[i-1]) {
+//                result.add(i);
+//            }
+//        }
+//      ========================================================= 수정 코드
         ArrayList<Integer> result = new ArrayList<>();
-        for (int i = 1; i < people_answer.length + 1; i++) {
-            if (maxAsInt == people_answer[i-1]) {
-                result.add(i);
+        for (int i = 0; i < people_answer.length; i++) {
+            result.add(people_answer[i]);
+        }
+        Collections.sort(result, Collections.reverseOrder());
+        ArrayList<Integer> result_1 = new ArrayList<>();
+        int max_num = result.get(0);
+        for (int i = 0; i < result.size(); i++) {
+            if (max_num == result.get(i)) {
+                result_1.add(i+1);
             }
         }
 
-        int[] answer = result.stream().mapToInt(i -> i).toArray();
+        int[] answer = result_1.stream().mapToInt(i -> i).toArray();
         for (int i = 0; i < answer.length; i++) {
             System.out.println("Max answer people = " + answer[i]);
         }
-     }
+    }
 }

@@ -46,5 +46,19 @@ public class Prac_algorithm_14 {
 //                }
 //            }
 //        }
+
+//      다른 사람 풀이 - 조원 풀이
+//        int maxBigger = 0;
+//        int maxSmaller = 0;
+//
+//        for (int i = 0; i<sizes.length; i++) {
+//            if (sizes[i][0]>sizes[i][1]) {
+//                if(maxBigger < sizes[i][0]) maxBigger = sizes[i][0];
+//                if(maxSmaller < sizes[i][1]) maxSmaller = sizes[i][1];
+//            } else {
+//                if(maxBigger < sizes[i][0]) maxBigger = sizes[i][1];
+//                if(maxSmaller < sizes[i][1]) maxSmaller = sizes[i][0];
+//            }
+//        }
     }
 }
