@@ -7,8 +7,8 @@ import java.util.Set;
 
 public class Prac_algorithm_main {
     public static void main(String args[]) {
-        int month = 1;
-        int day = 18;
+        int month = 6;
+        int day = 22;
         Pracc_algorithm_Cal test = new Pracc_algorithm_Cal(month, day);
 
 
